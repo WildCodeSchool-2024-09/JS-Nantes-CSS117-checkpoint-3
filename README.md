@@ -85,7 +85,36 @@ Tu peux commencer par lancer la commande suivante :
 npm run test install
 ```
 
+Après avoir executé cette commande, le terminal devrait afficher :
+
+```
+FAIL  tests/install.test.ts
+  Installation
+    ✕ You have created /server/.env (2 ms)
+    ✓ You have retained /server/.env.sample
+    ✕ You have filled /server/.env with valid information to connect to your database (18 ms)
+    ✕ You have executed the db:migrate script (2 ms)
+```
+    
+Les tests exécutés par la commande "npm run test" nous permettent de tester toutes sortes de choses (routes, requêtes ...). Ici il s'agit de tester l'installation et la configuration du checkpoint. Ce message qui s'affiche suite au premier test ressemblera aux autres étapes du checkpoint. 
+
+Tu dois faire en sorte que chacune des étapes soit validée.
+
 Si tu ne l'as pas déjà fait, pour passer ce premier test, tu dois créer le fichier `.env` en copiant `.env.sample`.
+
+Si tu crées le `.env` comme demandé (en conservant `.env.sample`) et que tu relances le test, tu devrais voir : 
+
+```
+  Installation
+    ✓ You have created /server/.env (1 ms)
+    ✓ You have retained /server/.env.sample
+    ✕ You have filled /server/.env with valid information to connect to your database (31 ms)
+    ✕ You have executed the db:migrate script (3 ms)
+```
+    
+Tu peux remarquer que l'étape `You have created /server/.env` est maintenant cochée. Il ne te reste plus qu'à faire le reste 🚀 !
+
+**Attention :** Matelote, matelot ! Le README est tout aussi important que les messages des tests. C'est comme une carte qui t'aide à naviguer. Donc, n'oublie pas qu'il existe !
 
 Le schéma de la base de données pour ce projet est fourni dans `server/database/schema.sql` : la base de données contiendra des bateaux (pirates) et des "tuiles" d'une carte au trésor.
 
@@ -106,8 +135,8 @@ npm run test install
 Tu peux maintenant réaliser la suite, étape par étape (pour chaque étape, suis les indications des tests dans la console) :
 
 - `npm run test step1` : ajouter un champ `has_treasure` à la table `tile` (booléen, non nul, `false` par défaut).
-- `npm run test step2` : créer une route `GET /api/tiles` (tu peux suivre le modèle de `GET /api/boats`).
-- `npm run test step3` : créer une route `PUT /api/boats/:id` pour mettre à jour un bateau de la base de données. Ta route doit renvoyer un statut `204` si la mise à jour a réussi. Dans ton action, tu peux accéder avec le paramètre `req` à :
+- `npm run test step2` : créer une route `GET /api/tiles` avec une action fonctionnelle (tu peux suivre le modèle de `GET /api/boats`).
+- `npm run test step3` : créer une route `PUT /api/boats/:id` pour mettre à jour un bateau de la base de données. Pense à revoir la quête "BREAD" sur Odyssey pour t'aider : tu dois ici réaliser l'opération "Edit". Ta route doit renvoyer un statut `204` si la mise à jour a réussi. Dans ton action, tu peux accéder avec le paramètre `req` à :
   - l'id du bateau (`req.params.id`),
   - ses coordonnées X et Y (`req.body.coord_x` et `req.body.coord_y`).
 - `npm run test step4` : créer un middleware dans `server/app/modules/tile/tileActions.ts` pour tester si une tuile avec les coordonnées `req.body.coord_x` et `req.body.coord_y` existe ou non dans la base de données.
