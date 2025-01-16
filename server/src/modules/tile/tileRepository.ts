@@ -22,7 +22,13 @@ class TileRepository {
   }
 
   async readByCoordinates(coordX: number, coordY: number) {
-    // your code here
+    const result = [];
+    if (!coordX || !coordY) {
+      result.push(coordX, coordY);
+    } else {
+      return [];
+    }
+    return result;
   }
 
   async getRandomIsland() {

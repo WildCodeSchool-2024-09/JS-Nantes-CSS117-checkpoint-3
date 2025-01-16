@@ -16,10 +16,10 @@ const browse: RequestHandler = async (req, res, next) => {
 
 const validate: RequestHandler = async (req, res, next) => {
   const { coord_x, coord_y } = req.body;
-  if (!coord_x || !coord_y) {
-    res.sendStatus(422);
-  } else {
+  if (coord_x && coord_y) {
     next();
+  } else {
+    res.sendStatus(422);
   }
 };
 
