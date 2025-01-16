@@ -21,8 +21,10 @@ class BoatRepository {
   }
 
   async update(boatToUpdate: Partial<Boat>) {
+    const [rows] = await databaseClient.query<Rows>(
+      "select * from boat order by coord_y, coord_x WHER id=?",
+    );
     // your code here
-    return 0;
   }
 }
 

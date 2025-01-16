@@ -1,4 +1,4 @@
-import type { RequestHandler } from "express";
+/* import type { RequestHandler } from "express";
 
 import boatRepository from "../boat/boatRepository";
 import tileRepository from "../tile/tileRepository";
@@ -38,3 +38,4 @@ const add: RequestHandler = async (req, res, next) => {
 export default {
   add,
 };
+ */
