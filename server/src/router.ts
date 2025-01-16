@@ -12,6 +12,7 @@ router.put("/api/boats/:id", boatActions.edit);
 
 import tileActions from "./modules/tile/tileActions";
 router.get("/api/tiles", tileActions.browse);
+router.post("/api/tiles/", tileActions.validate, tileActions.browse);
 
 import gameActions from "./modules/game/gameActions";
 router.post("/api/games", gameActions.add);
