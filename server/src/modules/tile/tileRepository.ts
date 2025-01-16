@@ -17,12 +17,13 @@ class TileRepository {
     return rows as Tile[];
   }
 
-  // const [rows] = await databaseClient.query<Rows>("select * from item");
-
-  // return rows as Item[];
-
   async readByCoordinates(coordX: number, coordY: number) {
-    // your code here
+    const [result] = await databaseClient.query<Rows>(
+      "SELECT coord_x, coord_y FROM tile WHERE coord_x BETWEEN 0 AND 11 AND coord_y BETWEEN 0 AND 5",
+      [coordX, coordY],
+    );
+
+    return result;
   }
 
   async getRandomIsland() {

@@ -11,8 +11,23 @@ const browse: RequestHandler = async (req, res, next) => {
   }
 };
 
+/////// du coup j'ai pas reussi ////////////
+
 const validate: RequestHandler = async (req, res, next) => {
-  // your code here
+  try {
+    const { coordX, coordY } = req.body;
+    const tiles = await tileRepository.readByCoordinates(coordX, coordY);
+
+    if (tiles.length === 0) {
+      res.status(422).json({ message: "Invalid coordinates: Tile not found." });
+    }
+    next();
+  } catch (error) {
+    console.error("Error during validation:", error);
+    res
+      .sendStatus(422)
+      .json({ message: "Internal server error during validation." });
+  }
 };
 
 export default {
