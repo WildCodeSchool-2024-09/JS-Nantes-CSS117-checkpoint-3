@@ -18,9 +18,9 @@ const validate: RequestHandler = async (req, res, next) => {
   const { coord_y, coord_x } = req.body;
 
   if (!coord_y || !coord_x) {
-    res.sendStatus(422);
-  } else {
     next();
+  } else {
+    res.sendStatus(422);
   }
 };
 
