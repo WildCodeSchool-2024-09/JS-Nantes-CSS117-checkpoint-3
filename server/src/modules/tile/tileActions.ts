@@ -3,6 +3,7 @@ import tileRepository from "./tileRepository";
 
 const browse: RequestHandler = async (req, res, next) => {
   try {
+    const boatName = req.query.name;
     const tiles = await tileRepository.readAll();
 
     res.json(tiles);
