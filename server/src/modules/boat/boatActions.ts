@@ -16,7 +16,13 @@ const browse: RequestHandler = async (req, res, next) => {
 };
 
 const edit: RequestHandler = async (req, res, next) => {
-  // your code here
+  try {
+    const item = await boatRepository.edit();
+
+    res.status(204).send("Boat has been updated !");
+  } catch (err) {
+    next(err);
+  }
 };
 
 export default {

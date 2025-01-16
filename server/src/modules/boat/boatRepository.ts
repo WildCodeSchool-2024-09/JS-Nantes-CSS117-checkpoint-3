@@ -10,6 +10,9 @@ type Boat = {
 };
 
 class BoatRepository {
+  edit() {
+    throw new Error("Method not implemented.");
+  }
   async readAll(where = {}) {
     // Execute the SQL SELECT query to retrieve all boats from the "boat" table
     const [rows] = await databaseClient.query<Rows>(
