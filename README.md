@@ -28,6 +28,8 @@ Chaque checkpoint implique un ensemble d’étapes similaires :
 5. Faire un commit après chaque étape, avec un message de commit qui met en évidence la partie terminée (par exemple `finished step 1`)
 6. Pousser tes modifications vers GitHub, de préférence après chaque validation
 
+pouet
+
 ## Pour ce checkpoint en particulier
 
 Ton objectif est de voir où tu en es sur :
