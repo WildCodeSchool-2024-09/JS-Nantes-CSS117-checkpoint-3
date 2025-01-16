@@ -16,7 +16,7 @@ Ces checkpoints sont conçus pour atteindre un certain nombre d’objectifs en t
 Chaque checkpoint implique un ensemble d’étapes similaires :
 
 1. Cloner le dépôt localement à l'aide des commandes git
-2. Immédiatement après le clonage, créer une nouvelle branche localement et basculer dessus
+2. Immédiatement après le clonage, créer une nouvelle branche localement et basculer dessu
 3. Pour nommer ta branche, nous aimerions que tu utilises le modèle `{{firstname}}_{{LASTNAME}}` où :
 
 - `{{firstname}}` est un placeholder qui doit être remplacé par ton prénom, en minuscules
