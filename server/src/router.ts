@@ -12,10 +12,10 @@ router.get("/api/boats", boatRepository.browse);
 
 import gameActions from "./modules/game/gameActions";
 import tileActions from "./modules/tile/tileActions";
-
-router.post("/api/games", gameActions.add);
+import verify from "./services/verify";
 
 /* ************************************************************************* */
 router.get("/api/tiles", tileActions.browse);
 router.put("/api/boats/:id", boatRepository.edit);
+router.post("/api/games", verify.checkFields, gameActions.add);
 export default router;
