@@ -27,7 +27,7 @@ const add: RequestHandler = async (req, res, next) => {
       if (affectedTiles === 0) {
         res.sendStatus(404);
       } else {
-        res.sendStatus(201);
+        res.sendStatus(204);
       }
     }
   } catch (err) {
