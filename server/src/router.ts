@@ -2,9 +2,10 @@ import express from "express";
 
 const router = express.Router();
 
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
+import titleActions from "./modules/tile/tileActions";
+
+router.get("/api/tiles", titleActions.browse);
+router.post("/api/tiles", titleActions.browse);
 
 import boatActions from "./modules/boat/boatActions";
 

@@ -15,8 +15,17 @@ const browse: RequestHandler = async (req, res, next) => {
   }
 };
 
-const edit: RequestHandler = async (req, res, next) => {
-  // your code here
+const edit: RequestHandler = async (req, res, next): Promise<void> => {
+  try {
+    // Exemple d'opération asynchrone
+    const { id } = req.params;
+    const data = req.body;
+
+    const updatedBoat = await boatRepository.update(data);
+    res.status(200).json({ message: "Boat updated successfully", updatedBoat });
+  } catch (error) {
+    next(error);
+  }
 };
 
 export default {
