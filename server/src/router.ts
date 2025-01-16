@@ -2,17 +2,18 @@ import express from "express";
 
 const router = express.Router();
 
+import tileActions from "./modules/tile/tileActions";
 /* ************************************************************************* */
-// Define Your API Routes Here
+router.get("/api/tile", tileActions.browse);
 /* ************************************************************************* */
 
 import boatActions from "./modules/boat/boatActions";
 
 router.get("/api/boats", boatActions.browse);
 
-import gameActions from "./modules/game/gameActions";
+// import gameActions from "./modules/game/gameActions";
 
-router.post("/api/games", gameActions.add);
+// router.post("/api/games", gameActions.add);
 
 /* ************************************************************************* */
 
