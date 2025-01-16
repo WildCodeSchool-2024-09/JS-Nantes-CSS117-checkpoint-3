@@ -23,7 +23,7 @@ function NavBar({ onStart }: NavBarProps) {
             });
         }}
       >
-        Hide treasure 🪙
+        Hidden treasure 🪙
       </button>
     </nav>
   );
