@@ -12,14 +12,14 @@ type Tile = {
 
 class TileRepository {
   async readAll() {
-    // Execute the SQL SELECT query to retrieve all tiles from the "tile" table
-    const [rows] = await databaseClient.query<Rows>(
-      "select * from tile order by coord_y, coord_x",
-    );
+    const [rows] = await databaseClient.query<Rows>("SELECT * FROM tile");
 
-    // Return the array of tiles
     return rows as Tile[];
   }
+
+  // const [rows] = await databaseClient.query<Rows>("select * from item");
+
+  // return rows as Item[];
 
   async readByCoordinates(coordX: number, coordY: number) {
     // your code here
