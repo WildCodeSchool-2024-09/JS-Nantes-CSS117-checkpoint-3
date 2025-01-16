@@ -1,3 +1,4 @@
+import type { RequestHandler } from "express";
 import databaseClient from "../../../database/client";
 
 import type { Result, Rows } from "../../../database/client";
@@ -23,6 +24,13 @@ class TileRepository {
 
   async readByCoordinates(coordX: number, coordY: number) {
     // your code here
+    const validate: RequestHandler = (req, res, next) => {
+      if (coordX >= 0 && coordX <= 11) {
+        res.sendStatus(422);
+      } else if (coordY >= 0 && coordY <= 5) {
+        next();
+      }
+    };
   }
 
   async getRandomIsland() {
