@@ -10,7 +10,14 @@ const browse: RequestHandler = async (req, res, next) => {
     // Respond with the boats in JSON format
     res.json(boats);
   } catch (err) {
-    // Pass any errors to the error-handling middleware
+    try {
+      const boats = await boatRepository.readAll();
+
+      res.json({ boats });
+    } catch (err) {
+      console.error("Error fetching boats or tiles:", err);
+      res.status(500).json({ error: "Internal server error" });
+    }
     next(err);
   }
 };

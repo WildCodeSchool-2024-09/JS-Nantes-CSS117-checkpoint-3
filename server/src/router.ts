@@ -14,6 +14,8 @@ import gameActions from "./modules/game/gameActions";
 
 router.post("/api/games", gameActions.add);
 
-/* ************************************************************************* */
+router.put("/api/boats/:id", boatActions.browse);
 
+/* ************************************************************************* */
+// router.get("/api/tiles", boatActions.browse);
 export default router;
